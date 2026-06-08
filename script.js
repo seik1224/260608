@@ -82,3 +82,14 @@ function onScroll(){
 	}
 }
 window.addEventListener('scroll', onScroll);
+
+function onResize(){
+	document.querySelector('.balgre').style.transition = 'opacity 0.3s';
+	if(innerWidth <= 700 || innerHeight <= 700){
+		document.querySelector('.balgre').style.opacity = 1;
+	} else {
+		document.querySelector('.balgre').style.opacity = 0;
+	}
+}
+
+window.addEventListener('resize', onResize)
