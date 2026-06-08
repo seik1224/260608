@@ -52,7 +52,33 @@ function onKeyDown(e){
 	const currentTop = parseInt(window.getComputedStyle(face).top)
 	
 	if(chk == 37){
-		face.style.left = currentLeft - 10 + 'px';
+		face.style.left = currentLeft - window.innerWidth * 0.05 + 'px';
+	}
+	if(chk == 39){
+		face.style.left = currentLeft + window.innerWidth * 0.05 + 'px';
+	}
+	if(chk == 38){
+		e.preventDefault();
+		face.style.top = currentTop - window.innerHeight * 0.05 + 'px';
+	}
+	if(chk == 40){
+		e.preventDefault();
+		face.style.top = currentTop + window.innerHeight * 0.05 + 'px';
 	}
 }
-window.addEventListener('keydown', onKeyDown)
+window.addEventListener('keydown', onKeyDown);
+window.removeEventListener('keydown', onKeyDown);
+
+function onScroll(){
+	console.log(scrollY);
+
+	face.style.transition = 'top 0.3s';
+	face.style.top = scrollY + window.innerHeight/2 + 'px';
+
+	if(scrollY >= 500){
+		document.querySelector('.balgre').style.opacity = 1;
+	} else {
+		document.querySelector('.balgre').style.opacity = 0;
+	}
+}
+window.addEventListener('scroll', onScroll);
