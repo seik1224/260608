@@ -21,6 +21,7 @@
 
 
 const facehover = document.querySelector('.facehover');
+const face = document.querySelector('.face');
 
 facehover.addEventListener('mouseenter', function(){
 	this.previousElementSibling.style.transition = 'opacity 0.3s';
@@ -41,3 +42,17 @@ function handleMouseMove(e){
 }
 window.addEventListener('mousemove', handleMouseMove);
 window.removeEventListener('mousemove', handleMouseMove);
+
+function onKeyDown(e){
+	console.log(e)
+
+	const chk = e.keyCode;
+
+	const currentLeft = parseInt(window.getComputedStyle(face).left)
+	const currentTop = parseInt(window.getComputedStyle(face).top)
+	
+	if(chk == 37){
+		face.style.left = currentLeft - 10 + 'px';
+	}
+}
+window.addEventListener('keydown', onKeyDown)
