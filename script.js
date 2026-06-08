@@ -31,3 +31,13 @@ facehover.addEventListener('mouseleave', function(){
 	this.previousElementSibling.style.transition = 'opacity 0.3s';
 	this.previousElementSibling.style.opacity = 0;
 });
+
+
+function handleMouseMove(e){
+	console.log(e.pageX, e.pageY);
+
+	document.querySelector('.face').style.left = e.pageX + 'px';
+	document.querySelector('.face').style.top = e.pageY + 'px';
+}
+window.addEventListener('mousemove', handleMouseMove);
+window.removeEventListener('mousemove', handleMouseMove);
