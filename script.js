@@ -26,3 +26,8 @@ facehover.addEventListener('mouseenter', function(){
 	this.previousElementSibling.style.transition = 'opacity 0.3s';
 	this.previousElementSibling.style.opacity = 1;
 });
+
+facehover.addEventListener('mouseleave', function(){
+	this.previousElementSibling.style.transition = 'opacity 0.3s';
+	this.previousElementSibling.style.opacity = 0;
+});
